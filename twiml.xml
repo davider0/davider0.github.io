@@ -1,0 +1,5 @@
+<Response data-google-analytics-opt-out="">
+<Say voice="woman">Gracias por contactar con el soporte de PayPal.</Say>
+<Pause length="1"/>
+<Say voice="woman">En este momento el servicio de atención al cliente no se encuentra disponible. Por favor, vuelva más tarde.</Say>
+</Response>
