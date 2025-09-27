@@ -15,6 +15,7 @@ self.C3_GetObjectRefTable = function () {
 		C3.Behaviors.Fade,
 		C3.Behaviors.Sin,
 		C3.Behaviors.Pin,
+		C3.Plugins.Audio,
 		C3.Plugins.System.Cnds.OnLoadFinished,
 		C3.Plugins.PlatformInfo.Cnds.IsOnMobile,
 		C3.Plugins.PlatformInfo.Cnds.IsNWjsExport,
@@ -25,12 +26,12 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.System.Cnds.EvaluateExpression,
 		C3.Plugins.System.Exps.find,
 		C3.Plugins.Browser.Exps.Language,
-		C3.JavaScriptInEvents.Main_code_Event1_Act1,
+		C3.JavaScriptInEvents.Emain_Event1_Act1,
 		C3.Behaviors.Pin.Acts.PinByProperties,
 		C3.Plugins.System.Cnds.IsGroupActive,
 		C3.Plugins.System.Cnds.EveryTick,
 		C3.Plugins.Text.Cnds.PickByUID,
-		C3.JavaScriptInEvents.Main_code_Event3_Act1,
+		C3.JavaScriptInEvents.Emain_Event3_Act1,
 		C3.Plugins.System.Acts.SetVar,
 		C3.Plugins.System.Exps.dt,
 		C3.Plugins.System.Acts.SetLayerEffectParam,
@@ -41,7 +42,7 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Text.Exps.X,
 		C3.Plugins.Text.Exps.Y,
 		C3.Plugins.Sprite.Cnds.IsOnScreen,
-		C3.JavaScriptInEvents.Main_code_Event4_Act3,
+		C3.JavaScriptInEvents.Emain_Event4_Act3,
 		C3.Plugins.Keyboard.Cnds.OnKey,
 		C3.Plugins.System.Acts.AddVar,
 		C3.Plugins.Text.Exps.Count,
@@ -51,9 +52,15 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Text.Cnds.PickDistance,
 		C3.Plugins.Mouse.Exps.X,
 		C3.Plugins.Mouse.Exps.Y,
-		C3.Plugins.Mouse.Cnds.IsOverObject,
-		C3.Plugins.Text.Cnds.IsVisible,
-		C3.Plugins.Text.Exps.UID
+		C3.Plugins.HTMLElement.Cnds.OnClicked,
+		C3.Plugins.System.Acts.SetFunctionReturnValue,
+		C3.Plugins.System.Acts.SetBoolVar,
+		C3.Plugins.System.Cnds.CompareBoolVar,
+		C3.Plugins.System.Cnds.Every,
+		C3.JavaScriptInEvents.Efights_Event5_Act1,
+		C3.Plugins.System.Cnds.Compare,
+		C3.Plugins.System.Exps.right,
+		C3.Plugins.Text.Exps.Text
 	];
 };
 self.C3_JsPropNameTable = [
@@ -83,9 +90,21 @@ self.C3_JsPropNameTable = [
 	{box2: 0},
 	{htmlBox: 0},
 	{menu2: 0},
+	{debugButton: 0},
+	{testButton: 0},
+	{gText: 0},
+	{Audio: 0},
 	{phase: 0},
 	{HSL: 0},
-	{lerpInstance: 0}
+	{lerpInstance: 0},
+	{pause: 0},
+	{eachLetterPause: 0},
+	{notFinished: 0},
+	{text: 0},
+	{csvRow: 0},
+	{csvColumn: 0},
+	{color: 0},
+	{size: 0}
 ];
 
 self.InstanceType = {
@@ -110,5 +129,9 @@ self.InstanceType = {
 	texto3: class extends self.ITextInstance {},
 	box2: class extends self.ISpriteInstance {},
 	htmlBox: class extends self.IHTMLElementInstance {},
-	menu2: class extends self.ISpriteInstance {}
+	menu2: class extends self.ISpriteInstance {},
+	debugButton: class extends self.IHTMLElementInstance {},
+	testButton: class extends self.IHTMLElementInstance {},
+	gText: class extends self.ITextInstance {},
+	Audio: class extends self.IInstance {}
 }

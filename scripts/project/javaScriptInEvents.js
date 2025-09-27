@@ -2,19 +2,19 @@
 
 const scriptsInEvents = {
 
-	async Main_code_Event1_Act1(runtime, localVars)
+	async Emain_Event1_Act1(runtime, localVars)
 	{
 		document.querySelector("html").style.backgroundColor = "#62d7fe";
 		
 		document.querySelector("body").style.backgroundColor = "#62d7fe";
 	},
 
-	async Main_code_Event3_Act1(runtime, localVars)
+	async Emain_Event3_Act1(runtime, localVars)
 	{
 		runtime.globalVars.HSL = runtime.getLayout("main").getLayer(0).effects[0].getParameter(0)*100;
 	},
 
-	async Main_code_Event4_Act3(runtime, localVars)
+	async Emain_Event4_Act3(runtime, localVars)
 	{
 // este codigo entero sirve unicamente para cambiar el background color del layout
 
@@ -147,6 +147,33 @@ document.querySelector("body").style.backgroundColor = changeHue(""+rgbToHex(run
 
 
 
+	},
+
+	async Efights_Event5_Act1(runtime, localVars)
+	{
+		var texto = runtime.localVars.text;
+		
+		if(localVars.csvColumn != 0 && localVars.csvRow != 0){
+		    texto = C3.getFiles()[csvRow][csvColumn];
+		}
+		
+			console.log(runtime.localVars.eachLetterPause = runtime.localVars.eachLetterPause + runtime.localVars.pause);
+		if(texto[runtime.objects.gText.getFirstInstance().text.length + 1] == "^"){
+		
+		console.log(texto[runtime.objects.outputText.getFirstInstance().text.length + 1]);
+		/* si el siguiente caracter es un ^ se almacena el numero que viene después en "pause"*/
+			runtime.globalVars.pause = parseInt(runtime.objects.inputText.getFirstInstance().text[runtime.objects.outputText.getFirstInstance().text.length + 2],10);
+			
+			runtime.globalVars.eachLetterPause = runtime.globalVars.eachLetterPause + runtime.globalVars.pause;
+			
+			runtime.objects.inputText.getFirstInstance().text = texto.substring(0, texto.indexOf("^"+runtime.globalVars.pause)) + texto.substring(texto.indexOf("^"+runtime.globalVars.pause) + 2);
+			console.log(texto);
+		runtime.objects.outputText.getFirstInstance().text = texto.substring(0,runtime.objects.outputText.getFirstInstance().text.length + 1);
+		} else{ // y si no pues pause se queda en cero
+			runtime.globalVars.eachLetterPause = runtime.globalVars.eachLetterPause - runtime.globalVars.pause*2;
+			runtime.globalVars.pause = 0;
+			runtime.objects.outputText.getFirstInstance().text = texto.substring(0,runtime.objects.outputText.getFirstInstance().text.length + 1);
+		}
 	}
 };
 
